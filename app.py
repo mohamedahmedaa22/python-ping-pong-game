@@ -47,10 +47,22 @@ def player1_move_down():
     y -= 20
     player1.sety(y)
 
+def player2_move_up():
+    y = player2.ycor()
+    y += 20
+    player2.sety(y)
+
+def player2_move_down():
+    y = player2.ycor()
+    y -= 20
+    player2.sety(y)
+
 #keybord bindings
 wind.listen()
 wind.onkeypress(player1_move_up, 'w')
 wind.onkeypress(player1_move_down, 's')
+wind.onkeypress(player2_move_up, 'Up')
+wind.onkeypress(player2_move_down, 'Down')
 
 while True:
     wind.update()
