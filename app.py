@@ -38,6 +38,17 @@ ball.goto(0, 0)
 ball.dx = 2.5
 ball.dy = 2.5
 
+#score
+score1 = 0
+score2 = 0
+score = turtle.Turtle()
+score.speed(0)
+score.color('white')
+score.penup()
+score.hideturtle()
+score.goto(0, 260)
+score.write("player 1: 0, Player 2: 0", align='center', font=('Courier', 24, 'normal'))
+
 #functions
 def player1_move_up():
     y = player1.ycor()
@@ -85,10 +96,16 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score1 += 1
+        score.clear()
+        score.write("player 1: {}, Player 2: {}".format(score1, score2), align='center', font=('Courier', 24, 'normal'))
 
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score2 += 1
+        score.clear()
+        score.write("player 1: {}, Player 2: {}".format(score1, score2), align='center', font=('Courier', 24, 'normal'))
 
     # if ball touches padlle
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < player2.ycor() + 40 and ball.ycor() > player2.ycor() - 40) :
