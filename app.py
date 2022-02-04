@@ -36,5 +36,21 @@ ball.color("white")
 ball.penup()
 ball.goto(0, 0)
 
+#functions
+def player1_move_up():
+    y = player1.ycor()
+    y += 20
+    player1.sety(y)
+
+def player1_move_down():
+    y = player1.ycor()
+    y -= 20
+    player1.sety(y)
+
+#keybord bindings
+wind.listen()
+wind.onkeypress(player1_move_up, 'w')
+wind.onkeypress(player1_move_down, 's')
+
 while True:
     wind.update()
